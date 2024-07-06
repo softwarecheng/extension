@@ -19,7 +19,7 @@ const log = (event, ...args) => {
   }
 };
 const script = document.currentScript;
-const channelName = script?.getAttribute('channel') || 'UNISAT';
+const channelName = script?.getAttribute('channel') || 'SAT20';
 
 export interface Interceptor {
   onRequest?: (data: any) => any;
@@ -368,23 +368,23 @@ export class Sat20Provider extends EventEmitter {
 
 declare global {
   interface Window {
-    unisat: Sat20Provider;
+    sat20: Sat20Provider;
   }
 }
 
 const provider = new Sat20Provider();
 
-if (!window.unisat) {
-  window.unisat = new Proxy(provider, {
+if (!window.sat20) {
+  window.sat20 = new Proxy(provider, {
     deleteProperty: () => true
   });
 }
 
-Object.defineProperty(window, 'unisat', {
+Object.defineProperty(window, 'sat20', {
   value: new Proxy(provider, {
     deleteProperty: () => true
   }),
   writable: false
 });
 
-window.dispatchEvent(new Event('unisat#initialized'));
+window.dispatchEvent(new Event('sat20#initialized'));
