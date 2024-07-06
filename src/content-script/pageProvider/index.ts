@@ -34,7 +34,7 @@ interface StateProvider {
   isPermanentlyDisconnected: boolean;
 }
 const EXTENSION_CONTEXT_INVALIDATED_CHROMIUM_ERROR = 'Extension context invalidated.';
-export class UnisatProvider extends EventEmitter {
+export class Sat20Provider extends EventEmitter {
   _selectedAddress: string | null = null;
   _network: string | null = null;
   _isConnected = false;
@@ -368,11 +368,11 @@ export class UnisatProvider extends EventEmitter {
 
 declare global {
   interface Window {
-    unisat: UnisatProvider;
+    unisat: Sat20Provider;
   }
 }
 
-const provider = new UnisatProvider();
+const provider = new Sat20Provider();
 
 if (!window.unisat) {
   window.unisat = new Proxy(provider, {

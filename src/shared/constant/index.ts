@@ -119,7 +119,7 @@ export const ADDRESS_TYPES: {
   name: string;
   hdPath: string;
   displayIndex: number;
-  isUnisatLegacy?: boolean;
+  isSat20Legacy?: boolean;
 }[] =
   [
     {
@@ -128,7 +128,7 @@ export const ADDRESS_TYPES: {
       name: 'Legacy (P2PKH)',
       hdPath: "m/44'/0'/0'/0",
       displayIndex: 3,
-      isUnisatLegacy: false
+      isSat20Legacy: false
     },
     {
       value: AddressType.P2WPKH,
@@ -136,7 +136,7 @@ export const ADDRESS_TYPES: {
       name: 'Native Segwit (P2WPKH)',
       hdPath: "m/84'/0'/0'/0",
       displayIndex: 0,
-      isUnisatLegacy: false
+      isSat20Legacy: false
     },
     {
       value: AddressType.P2TR,
@@ -144,7 +144,7 @@ export const ADDRESS_TYPES: {
       name: 'Taproot (P2TR)',
       hdPath: "m/86'/0'/0'/0",
       displayIndex: 2,
-      isUnisatLegacy: false
+      isSat20Legacy: false
     },
     {
       value: AddressType.P2SH_P2WPKH,
@@ -152,7 +152,7 @@ export const ADDRESS_TYPES: {
       name: 'Nested Segwit (P2SH-P2WPKH)',
       hdPath: "m/49'/0'/0'/0",
       displayIndex: 1,
-      isUnisatLegacy: false
+      isSat20Legacy: false
     },
     {
       value: AddressType.M44_P2WPKH,
@@ -160,7 +160,7 @@ export const ADDRESS_TYPES: {
       name: 'Native SegWit (P2WPKH)',
       hdPath: "m/44'/0'/0'/0",
       displayIndex: 4,
-      isUnisatLegacy: true
+      isSat20Legacy: true
     },
     {
       value: AddressType.M44_P2TR,
@@ -168,7 +168,7 @@ export const ADDRESS_TYPES: {
       name: 'Taproot (P2TR)',
       hdPath: "m/44'/0'/0'/0",
       displayIndex: 5,
-      isUnisatLegacy: true
+      isSat20Legacy: true
     }
   ];
 
@@ -176,8 +176,8 @@ export const OW_HD_PATH = "m/86'/0'/0'";
 
 export const RESTORE_WALLETS: { value: RestoreWalletType; name: string; addressTypes: AddressType[] }[] = [
   {
-    value: RestoreWalletType.UNISAT,
-    name: 'UniSat Wallet',
+    value: RestoreWalletType.SAT20,
+    name: 'Sat20 Wallet',
     addressTypes: [
       AddressType.P2WPKH,
       AddressType.P2SH_P2WPKH,
@@ -281,12 +281,12 @@ export const TO_LOCALE_STRING_CONFIG = {
   minimumFractionDigits: 8
 };
 
-export const SUPPORTED_DOMAINS = ['sats', 'unisat', 'x', 'btc'];
+export const SUPPORTED_DOMAINS = ['sats', 'ordx', 'sat20', 'x', 'btc'];
 export const SAFE_DOMAIN_CONFIRMATION = 3;
 
-export const GITHUB_URL = 'https://github.com/unisat-wallet/extension';
-export const DISCORD_URL = 'https://discord.com/invite/EMskB2sMz8';
-export const TWITTER_URL = 'https://twitter.com/unisat_wallet';
+export const GITHUB_URL = 'https://github.com/sat20-labs/extension';
+export const DISCORD_URL = 'https://discord.com/invite/xxxxxxxxxx';
+export const TWITTER_URL = 'https://x.com/SAT20Labs';
 
 export const CHANNEL = process.env.channel!;
 export const VERSION = process.env.release!;
