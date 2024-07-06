@@ -51,6 +51,11 @@ class ProviderController extends BaseController {
   };
 
   @Reflect.metadata('SAFE', true)
+  genWalletAddress = async (index: number, count: number) => {
+    return null
+  };
+
+  @Reflect.metadata('SAFE', true)
   getAccounts = async ({ session: { origin } }) => {
     if (!permissionService.hasPermission(origin)) {
       return [];
@@ -181,7 +186,7 @@ class ProviderController extends BaseController {
     req.data.params.psbtHex = formatPsbtHex(psbtHex);
   }])
   signPsbt = async ({ data: { params: { psbtHex, options } }, approvalRes }) => {
-    if (approvalRes && approvalRes.signed==true) {
+    if (approvalRes && approvalRes.signed == true) {
       return approvalRes.psbtHex
     }
     const networkType = wallet.getNetworkType()

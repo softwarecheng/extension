@@ -11,11 +11,11 @@ import { $, domReadyCall } from './utils';
 
 const log = (event, ...args) => {
   if (process.env.NODE_ENV !== 'production') {
-    // console.log(
-    //   `%c [unisat] (${new Date().toTimeString().slice(0, 8)}) ${event}`,
-    //   'font-weight: 600; background-color: #7d6ef9; color: white;',
-    //   ...args
-    // );
+    console.log(
+      `%c [sat20] (${new Date().toTimeString().slice(0, 8)}) ${event}`,
+      'font-weight: 600; background-color: #7d6ef9; color: white;',
+      ...args
+    );
   }
 };
 const script = document.currentScript;
@@ -168,6 +168,12 @@ export class UnisatProvider extends EventEmitter {
   requestAccounts = async () => {
     return this._request({
       method: 'requestAccounts'
+    });
+  };
+
+  genWalletAddress = async (index: number, count: number) => {
+    return this._request({
+      method: 'genWalletAddress'
     });
   };
 
